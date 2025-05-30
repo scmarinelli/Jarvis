@@ -19,6 +19,10 @@ public class MemoryManager : IMemoryManager
         };
     }
 
+    public void UpdateCurrentState(EnvironmentState state) {
+        _working = _working with { CurrentState = state };
+    }
+
     public void Consolidate() { /* Placeholder: logic for abstracting concepts from episodes */ }
     public void Decay() { /* Placeholder: decay old episodes, manage memory size */ }
     public AgentMemory GetCurrentMemory() =>

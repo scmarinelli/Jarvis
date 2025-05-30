@@ -41,6 +41,7 @@ public class Agent : IAgent
     }
 
     public void Perceive(EnvironmentState environmentState) {
+        memoryManager.UpdateCurrentState(environmentState);
         var focus = focusSelector.SelectFocus(environmentState, State.Traits, State.Memory);
         State = State with { Focus = focus };
         State = State with { Memory = memoryManager.GetCurrentMemory() };
